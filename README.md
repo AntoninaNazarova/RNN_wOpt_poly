@@ -20,16 +20,11 @@ Custom features/ Hyperparameter Optimization
 While the developed recurrent neural network architecture works quite well on a variety of datasets, optimization of certain hyperparameters forces noticeable improvement in prognosing performance. The optimization strategy for iRPROP- method includes greed search of parameter delta0 corresponding to the minimum of the loss function (denoted in the RMSE metrics). The optimization strategy for NormalyzedBP approach proceeds with finding optimal parameter ap responsible for reaching of global minimum in backpropagation approach. Parameter ap is denoted as Normalization_factor in session //1_Initialization of the working registers. Once hyperparameter optimization is complete, i.e. the corresponding loss function equals to the minimum value, the found optimal Normalization_factor (if Normalyzed_BP) and delta0 (if iRPROP-) should be applied for evaluation of prediction performance.
 
 As an outline of the proposed RNN model, the table of concepts relative to both iRPROP- and Normalized_BP learning procedures is the following:
-	
+
 1. Initialization of the working registers
-
 2. Data initialization
-
-2.1 SMILES decoding (representation to binary format)
-
-2.1.1 Reading of the SMILES array
-
-2.1.2 Max SMILES length calculation
+	2.1 SMILES array
+		2.1.2 Max SMILES length calculation
 
 2.1.3 SMILES binary representation
 
