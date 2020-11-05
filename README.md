@@ -1,4 +1,4 @@
-# RNN_wOpt - RNN_w_Optimizations_polymer_structure-property#
+# RNN_wOpt - RNN_w_Optimizations_polymer_structure-property #
 ## Polymeric property prediction ##
 This repository contains recurrent neural networks for polymeric property prediction as described in the paper Dielectric Polymer Property Prediction Using Recurrent Neural Networks with Optimizations.
 Both NormalizedBP and iRPROP- with optimization models are trained on a single tasking. 
