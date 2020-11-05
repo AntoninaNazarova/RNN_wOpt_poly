@@ -2,23 +2,26 @@
 ## Polymeric property prediction ##
 This repository contains recurrent neural networks for polymeric property prediction as described in the paper Dielectric Polymer Property Prediction Using Recurrent Neural Networks with Optimizations.
 Both NormalizedBP and iRPROP- with optimization models are trained on a single tasking. 
-Requirements
+## Requirements ##
 For small to medium datasets (~1000 to ~5000) in the SMILES decimal input representation it is possible to train models within minutes on a standard laptop using CPUs only. Same precautions for binary SMILES representation of larger sets will require a few hours.
 ## Input data ##
 For the purpose of training a model, one must provide two .dat files without any header rows: 1) chemical structures in the SMILES string format; 2) computationally or experimentally derived target values. Target values should be real numbers, unknown or invalid values should be discarded correspondingly. 
 SMILES and target values (in the case of an example – dielectric constant), should be represented in a single column format.
-//2.1.2_Max SMILES_length_calculation // Calculates the longest pattern in terms of the particular SMILES representation to be employed further as the number of hidden nodes for particular RNN model.
-//2.3_Varification of the processing data// Verifies if the input file contains duplicates in the target data, otherwise assigns equal values.
+*//2.1.2_Max SMILES_length_calculation//* Calculates the longest pattern in terms of the particular SMILES representation to be employed further as the number of hidden nodes for particular RNN model.
+*//2.3_Varification of the processing data//* Verifies if the input file contains duplicates in the target data, otherwise assigns equal values.
 ## Data representation ##
 SMILES input can be represented for further training and testing purposes in binary or decimal format. Once chosen to be represented in the binary format, the input is delivered as:
- 
+
+ ![111](https://user-images.githubusercontent.com/22823050/98211073-5e6e3100-1ef6-11eb-95f9-61c77ca83010.png)
+
 The decimal SMILES representation is reflected in the column format where each string type symbol is converted the corresponding one in the ASCII table.
 
 ## Training/ Testing splits ##
-Both codes support several activation functions and custom choice of the splitting data into training and testing pools. By default, the data is trained using 95% of the input samples, whereas testing is performed for the rest 5% of patterns. Alternatives can be specified in //1.3._Preparation of the test pool// section.
-Section //3_Test pool data preparation// involves random setting of the weigh parameters of the input, output and context unit layers.
-Custom features/ Hyperparameter Optimization
-While the developed recurrent neural network architecture works quite well on a variety of datasets, optimization of certain hyperparameters forces noticeable improvement in prognosing performance. The optimization strategy for iRPROP- method includes greed search of parameter delta0 corresponding to the minimum of the loss function (denoted in the RMSE metrics). The optimization strategy for NormalyzedBP approach proceeds with finding optimal parameter ap responsible for reaching of global minimum in backpropagation approach. Parameter ap is denoted as Normalization_factor in session //1_Initialization of the working registers. Once hyperparameter optimization is complete, i.e. the corresponding loss function equals to the minimum value, the found optimal Normalization_factor (if Normalyzed_BP) and delta0 (if iRPROP-) should be applied for evaluation of prediction performance.
+Both codes support several activation functions and custom choice of the splitting data into training and testing pools. By default, the data is trained using 95% of the input samples, whereas testing is performed for the rest 5% of patterns. Alternatives can be specified in *//1.3._Preparation of the test pool//* section.
+Section *//3_Test pool data preparation//* involves random setting of the weigh parameters of the input, output and context unit layers.
+
+## Custom features/ Hyperparameter Optimization ##
+While the developed recurrent neural network architecture works quite well on a variety of datasets, optimization of certain hyperparameters forces noticeable improvement in prognosing performance. The optimization strategy for iRPROP- method includes greed search of parameter delta0 corresponding to the minimum of the loss function (denoted in the RMSE metrics). The optimization strategy for NormalyzedBP approach proceeds with finding optimal parameter ap responsible for reaching of global minimum in backpropagation approach. Parameter ap is denoted as Normalization_factor in session *//1_Initialization of the working registers.//* Once hyperparameter optimization is complete, i.e. the corresponding loss function equals to the minimum value, the found optimal Normalization_factor (if Normalyzed_BP) and delta0 (if iRPROP-) should be applied for evaluation of prediction performance.
 
 ## Table of concepts ##
 As an outline of the proposed RNN model, the table of concepts relative to both iRPROP- and Normalized_BP learning procedures is the following:
