@@ -21,17 +21,17 @@ While the developed recurrent neural network architecture works quite well on a 
 
 As an outline of the proposed RNN model, the table of concepts relative to both iRPROP- and Normalized_BP learning procedures is the following:
 	
-1.	Initialization of the working registers
+1. Initialization of the working registers
 
-2.	Data initialization
+2. Data initialization
 
-2.1.	SMILES decoding (representation to binary format)
+	2.1. SMILES decoding (representation to binary format)
 
-2.1.1.	Reading of the SMILES array
+		2.1.1. Reading of the SMILES array
 
-2.1.2.	Max SMILES length calculation
+		2.1.2. Max SMILES length calculation
 
-2.1.3.	SMILES binary representation
+	2.1.3. SMILES binary representation
 
 2.2	Array for eps values (targeted)
 
