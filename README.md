@@ -25,13 +25,13 @@ As an outline of the proposed RNN model, the table of concepts relative to both 
 
 2.	Data initialization
 
-2.1	SMILES decoding (representation to binary format)
+2.1.	SMILES decoding (representation to binary format)
 
-2.1.1	Reading of the SMILES array
+2.1.1.	Reading of the SMILES array
 
-2.1.2	Max SMILES length calculation
+2.1.2.	Max SMILES length calculation
 
-2.1.3	SMILES binary representation
+2.1.3.	SMILES binary representation
 
 2.2	Array for eps values (targeted)
 
