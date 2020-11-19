@@ -1,7 +1,7 @@
 # RNN_wOpt - RNN_w_Optimizations_polymer_structure-property #
 ## Polymeric property prediction ##
 This repository contains recurrent neural networks for polymeric property prediction as described in the paper Dielectric Polymer Property Prediction Using Recurrent Neural Networks with Optimizations.
-Both NormalizedBP and iRPROP- with optimization models are trained on a single tasking. 
+Both ATransformedBP and iRPROP- with optimization models are trained on a single tasking. 
 ## Requirements ##
 For small to medium datasets (~1000 to ~5000) in the SMILES decimal input representation it is possible to train models within minutes on a standard laptop using CPUs only. Same precautions for binary SMILES representation of larger sets will require a few hours.
 ## Input data ##
@@ -29,10 +29,10 @@ Both codes support several activation functions and custom choice of the splitti
 Section *//3_Test pool data preparation//* involves random setting of the weigh parameters of the input, output and context unit layers.
 
 ## Custom features/ Hyperparameter Optimization ##
-While the developed recurrent neural network architecture works quite well on a variety of datasets, optimization of certain hyperparameters forces noticeable improvement in prognosing performance. The optimization strategy for iRPROP- method includes greed search of parameter delta0 corresponding to the minimum of the loss function (denoted in the RMSE metrics). The optimization strategy for NormalyzedBP approach proceeds with finding optimal parameter ap responsible for reaching of global minimum in backpropagation approach. Parameter ap is denoted as Normalization_factor in session *//1_Initialization of the working registers.//* Once hyperparameter optimization is complete, i.e. the corresponding loss function equals to the minimum value, the found optimal Normalization_factor (if Normalyzed_BP) and delta0 (if iRPROP-) should be applied for evaluation of prediction performance.
+While the developed recurrent neural network architecture works quite well on a variety of datasets, optimization of certain hyperparameters forces noticeable improvement in prognosing performance. The optimization strategy for iRPROP- method includes greed search of parameter delta0 corresponding to the minimum of the loss function (denoted in the RMSE metrics). The optimization strategy for ATransformedBP approach proceeds with finding optimal parameter ap responsible for reaching of global minimum in backpropagation approach. Parameter ap is denoted as Normalization_factor in session *//1_Initialization of the working registers.//* Once hyperparameter optimization is complete, i.e. the corresponding loss function equals to the minimum value, the found optimal Normalization_factor (if Normalyzed_BP) and delta0 (if iRPROP-) should be applied for evaluation of prediction performance.
 
 ## Table of concepts ##
-As an outline of the proposed RNN model, the table of concepts relative to both iRPROP- and Normalized_BP learning procedures is the following:
+As an outline of the proposed RNN model, the table of concepts relative to both iRPROP- with initial weight update optimization and ATransformedBP learning procedures is the following:
 
 #### 1. Initialization of the working registers ####
 
@@ -54,7 +54,7 @@ As an outline of the proposed RNN model, the table of concepts relative to both 
 
 3.1 SMILES decoding (representation to decimal)
 
-#### 4. Learning procedure (iRPROP- or BP) ####
+#### 4. Learning procedure (iRPROP- or ATransformedBP) ####
 
 4.1 Weights initializations for the first, output and context unit layers
 
