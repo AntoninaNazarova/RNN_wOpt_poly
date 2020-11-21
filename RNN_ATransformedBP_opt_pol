@@ -65,9 +65,9 @@ printf("activation %d",i_activation);
    stream_Z = fopen("eps.dat", "r");
 
    /* open a file */
-   stream1 = fopen("dbp1_d_SIGMOID_BP_Normalized.dat", "w"); /* RMSE vs epoch for test pool*/
-   stream2 = fopen("dbp2_d_SIGMOID_BP_Normalized.dat", "w"); /* RMSE vs epoch for training pool*/
-	stream3 = fopen("dbp3_d_SIGMOID_BP_Normalized.dat", "w"); /* Predicted eps*/
+   stream1 = fopen("dbp1_d_SIGMOID_ATransformedBP.dat", "w"); /* RMSE vs epoch for test pool*/
+   stream2 = fopen("dbp2_d_SIGMOID_ATransformedBP.dat", "w"); /* RMSE vs epoch for training pool*/
+	stream3 = fopen("dbp3_d_SIGMOID_ATransformedBP.dat", "w"); /* Predicted eps*/
 
 //__1. Initialization of the working registers___
    i_count2=0;
@@ -434,7 +434,7 @@ if(j==i_sm[i]) {ill=1;}
 if(ill==1){goto iter3;}
 
 // INPUT
-  for (i=0 ; i<l1 ; i++)			//Normalization
+  for (i=0 ; i<l1 ; i++)			//Afine Transform
   {
   x[i]=s_smile[j][i]*ap;
   }
